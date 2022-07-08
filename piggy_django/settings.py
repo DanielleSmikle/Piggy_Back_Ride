@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'piggy',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,8 @@ DATABASES = {
         'NAME': 'piggy',
         'USER': 'piggyuser',
         'PASSWORD': 'piggy',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'DISABLE_SERVER_SIDE_CURSORS': True,
     }
 }
 

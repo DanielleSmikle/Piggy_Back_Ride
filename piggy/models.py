@@ -34,16 +34,15 @@ class Parent(models.Model):
     scholar = models.ForeignKey(
                         Scholar,
                         on_delete=models.CASCADE,
-                        related_name='parents',
+                        related_name='parent',
                         )
     first_name = models.CharField(max_length=50, default='Jon')
     last_name = models.CharField(max_length=50, default='Doe')
-    scholar_name= models.CharField(max_length=50, default='Jon Doe')
-    relation_To_Scholar = models.CharField(max_length= 10, default='mother')
+    relation_To_Scholar = models.CharField(max_length= 10, default='father')
     phone_number = models.CharField(max_length= 10, default='(516)123-4567')
 
     def __str__(self):
-        return self.phone_number
+        return self.first_name
     
 
 
