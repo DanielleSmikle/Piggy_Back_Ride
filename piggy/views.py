@@ -14,3 +14,7 @@ def scholar_list(request):
 def parent_list(request):
     parents = Parent.objects.all()
     return render(request, 'piggy/parent_list.html', {'parents': parents})
+
+def room_detail(request, pk):
+    room = Room.objects.get(id=pk)
+    return render( request, 'piggy/room_detail.html', {'room':room})

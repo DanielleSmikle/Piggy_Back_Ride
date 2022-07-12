@@ -6,6 +6,7 @@ class Room(models.Model):
     room_number = models.CharField(max_length=4)
     teacher_Name = models.CharField(max_length=100)
     scholar_Name = models.CharField(max_length =100)
+    photo_url= models.TextField(default='https://tse3.mm.bing.net/th?id=OIP.sttsR_82WRk0u7zA7lpGPAHaFN&pid=Api&P=0&w=255&h=179')
 
     def __str__(self):
         return self.room_number
