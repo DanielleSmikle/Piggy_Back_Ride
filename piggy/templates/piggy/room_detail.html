@@ -1,10 +1,20 @@
-<h2>{{room.room_number}}</h2> <a hreef="">Change room number</a>
+{% extends 'piggy/base.html' %}
+{% block title %}{{room.room_number}} {% endblock %}
+{% block content %} 
+
+<h2>{{room.room_number}}</h2> <a href="">Edit room number</a>
 <h4>{{room.teacher_Name}}</h4>
+<h4>{{room.scholar_Name}}</h4>
+
+<img src="{{room.photo_url}}" alt="room.teacher_name" class="room-photo" />
 
 <h4>Scholars <a href=''>(+)</a></h4>
 <ul>
-    {% for scholar in room.scholars.all %}
+    {% for Scholars in room.scholars.all %}
         <li>
-            
+            <a href="{%url 'scholar_detail' pk=scholar.pk %}">{{scholar.scholar_name}}-{{scholar.scholar_name}}-{{scholar.parent_Name}}-{{scholar.date_Of_Birth}}-{{scholar.teacher_Name}}-{{scholar.grade_Level}}-{{scholar.room_Number}}-{{scholar.pickup_Method}}</a>
         </li>
+    {% endfor %}
 </ul>
+
+{% endblock %}

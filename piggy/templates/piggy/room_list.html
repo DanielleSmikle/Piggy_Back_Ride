@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Number</title>
-</head>
-<body>
+{% extends 'piggy/base.html' %} 
+{% block title %}- Room {% endblock%}
+{% block content %} 
     <h2>Room Listings</h2>
     <ul>
         {% for room in rooms %}
-            <h2>{{room.room_number}}</h2>
-            <h2>{{room.teacher_Name}}</h2>
-            <h2>{{room.scholar_Name}}</h2>
+           <a href="{%url 'room_detail' pk=room.pk %}"><h2>{{room.room_number}}</h2></a>
+            <p>{{room.teacher_Name}}</p>
+            <p>{{room.scholar_Name}}</p>
             <img src="{{room.photo_url}}" alt="room.teacher_name"/>
             <hr />
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

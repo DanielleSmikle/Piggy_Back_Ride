@@ -18,3 +18,11 @@ def parent_list(request):
 def room_detail(request, pk):
     room = Room.objects.get(id=pk)
     return render( request, 'piggy/room_detail.html', {'room':room})
+
+def scholar_detail(request, pk):
+    scholar = Scholar.objects.get(id=pk)
+    return render( request, 'piggy/scholar_detail.html', {'scholar':scholar})
+
+def parent_detail(request, pk):
+    parent = Parent.objects.get(id=pk)
+    return render( request, 'piggy/parent_detail.html', {'parent':parent})

@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholar List</title>
-</head>
-<body>
+{% extends 'piggy/base.html' %} 
+{% block title %}- Scholars {% endblock%}
+{% block content %} 
     <h2>Scholars</h2>
     <ul>
         {% for scholar in scholars %}
-            <h2>{{scholar.scholar_name}}</h2>
+           <a href="{%url 'scholar_detail' pk=scholar.pk %}"><h2>{{scholar.scholar_name}}</h2></a>
             <img src="{{scholar.photo_url}}" />
+            <h2>{{scholar.parent_Name}}</h2>
+            <h2>{{scholar.date_Of_Birth}}</h2>
+            <h2>{{scholar.teacher_Name}}</h2>
+            <h2>{{scholar.grade_Level}}</h2>
+            <h2>{{scholar.room_Number}}</h2>
+            <h2>{{scholar.pickup_Method}</h2>
+            
             <hr />
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock%}
