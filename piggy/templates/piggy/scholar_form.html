@@ -1,0 +1,9 @@
+<!-- piggy/templates/piggy/scholar_form.html -->
+{% extends 'piggy/base.html' %} {% block content %}
+<h1>Add New Scholar</h1>
+<form method="POST" class="scholar-form">
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Submit</button>
+</form>
+{% endblock %}

@@ -2,7 +2,8 @@
 {% block title %}{{room.room_number}} {% endblock %}
 {% block content %} 
 
-<h2>{{room.room_number}}</h2> <a href="">Edit room number</a>
+<h2>{{room.room_number}}</h2> <a href="{% url 'room_update' pk=room.pk %}">Edit room number</a>
+<a href="{% url 'room_delete' pk=room.pk %}">Delete Room </a>
 <h4>{{room.teacher_Name}}</h4>
 <h4>{{room.scholar_Name}}</h4>
 

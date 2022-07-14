@@ -2,7 +2,8 @@
 {% block title %}{{parent.first_name}} {% endblock %}
 {% block content %} 
 
-<h2>{{parent.scholar}}</h2> <a href="">Edit Parent Info</a>
+<h2>{{parent.scholar}}</h2> <a href="{% url 'parent_update' pk=parent.pk %}">Edit Parent Info</a>
+<a href="{% url 'parent_delete' pk=parent.pk %}">Delete Parent Info</a>
 <h4>{{parent.first_name}}</h4>
 <h4>{{parent.last_name}}</h4>
 <h4>{{parent.relation_To_Scholar}}</h4>

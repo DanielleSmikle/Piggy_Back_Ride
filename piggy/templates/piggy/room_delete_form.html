@@ -1,0 +1,11 @@
+{% extends 'piggy/base.html' %} {% block content %}
+<h1 class="title pt-5"> Are you sure you want to Delete {{room.room_number}}</h1>
+<form method="post">
+    {% csrf_token %} 
+    <div class="buttons">
+        <input class="button is-danger" type="submit" value="Confirm" />
+    
+    <a class= "button is primary" href="{% url 'room_detail' room.pk%}">Cancel</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,7 +1,8 @@
 {% extends 'piggy/base.html' %}
 {% block title %}{{scholar.scholar_name}} {% endblock %}
 {% block content %} 
-<h2>{{scholar.scholar_name}}</h2> <a href="">Edit Scholar</a>
+<h2>{{scholar.scholar_name}}</h2> <a href="{% url 'scholar_update' pk=scholar.pk %}">Edit Scholar</a>
+<a href="{% url 'scholar_delete' pk=scholar.pk %}">Delete Scholar</a>
 <h4>{{scholar.parent_Name}}</h4>
 <h4>{{scholar.date_Of_Birth}}</h4>
 <h2>{{scholar.teacher_Name}}</h2>
