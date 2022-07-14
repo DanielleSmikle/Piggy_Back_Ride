@@ -1,0 +1,8 @@
+<!-- piggy/templates/piggy/room_form.html -->
+{% extends 'piggy/base.html' %} {% block content %}
+<h1>New Room</h1>
+<form method="POST" class="room-form">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}

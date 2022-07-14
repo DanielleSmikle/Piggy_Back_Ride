@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from piggy.forms import RoomForm
 from .models import Room, Scholar, Parent
+from .forms import ParentForm, Room, Scholar, Parent, ScholarForm
 
 # Create your views here.
 
@@ -26,3 +29,39 @@ def scholar_detail(request, pk):
 def parent_detail(request, pk):
     parent = Parent.objects.get(id=pk)
     return render( request, 'piggy/parent_detail.html', {'parent':parent})
+
+
+
+
+def room_create(request):
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            room = form.save()
+            return redirect('room_detail', pk= room.pk)
+
+    else:
+        form = RoomForm()
+    return render(request, 'piggy/room_form.html', {'form':form})
+
+def scholar_create(request):
+    if request.method == 'POST':
+        form = ScholarForm(request.POST)
+        if form.is_valid():
+            scholar = form.save()
+            return redirect('scholar_detail', pk= scholar.pk)
+
+    else:
+        form = ScholarForm()
+    return render(request, 'piggy/scholar_form.html', {'form':form})
+
+def parent_create(request):
+    if request.method == 'POST':
+        form = ParentForm(request.POST)
+        if form.is_valid():
+            parent = form.save()
+            return redirect('parent_detail', pk= parent.pk)
+
+    else:
+        form = ParentForm()
+    return render(request, 'piggy/parent_form.html', {'form':form})

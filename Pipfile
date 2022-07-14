@@ -8,6 +8,7 @@ django = "*"
 psycopg2-binary = "*"
 django-extensions = "*"
 ipython = "*"
+django-rest-framework = "*"
 
 [dev-packages]
 
