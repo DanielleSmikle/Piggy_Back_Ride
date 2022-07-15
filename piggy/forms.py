@@ -17,7 +17,7 @@ class ScholarForm(forms.ModelForm):
 
     class Meta:
         model = Scholar
-        fields = ('scholar_name', 'photo_url', 'parent_Name', 'date_Of_Birth', 'teacher_Name', 'grade_Level','room_Number','pickup_Method')
+        fields = ('scholar_name', 'photo_url', 'parent_Name', 'date_Of_Birth', 'teacher_Name', 'grade_Level','room_Number','pickup_Method','parent_Number')
 
 class ParentForm(forms.ModelForm):
 

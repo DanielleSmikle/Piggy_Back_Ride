@@ -1,13 +1,39 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
+
 # from piggy.forms import RoomForm
 from .models import Room, Scholar, Parent
 from .forms import ParentForm, Room, Scholar, Parent, ScholarForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
+from rest_framework import generics
+from .serializers import RoomSerializer, ScholarSerializer
+
+
 # Create your views here.
+
+class RoomList(generics.ListCreateAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
+
+class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Room.objects.all()
+    serializer_class= RoomSerializer
+
+class ScholarList(generics.ListCreateAPIView):
+    queryset = Scholar.objects.all()
+    serializer_class = ScholarSerializer
+
+class ScholarDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Scholar.objects.all()
+    serializer_class= ScholarSerializer
+
+
+
+
+
 
 class RoomCreate(CreateView):
     model = Room
