@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 
 # from piggy.forms import RoomForm
 from .models import Room, Scholar, Parent
 from .forms import ParentForm, Room, Scholar, Parent, ScholarForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 
@@ -58,16 +60,43 @@ class ParentDelete(DeleteView):
     success_url= '/parents/'
 
 def room_list(request):
+
     rooms = Room.objects.all()
-    return render(request, 'piggy/room_list.html', {'rooms':rooms})
+    values_rooms = rooms.values('room_number', 'teacher_Name','scholar_Name','photo_url')
+    list_rooms = list(values_rooms)
+    
+    print(type(rooms))
+    print(type(values_rooms))
+    print(type(list_rooms))
+
+
+    return JsonResponse(list_rooms, safe=False)
+    # return render(request, 'piggy/room_list.html', {'rooms':rooms})
 
 def scholar_list(request):
+    
     scholars = Scholar.objects.all()
-    return render(request, 'piggy/scholar_list.html', {'scholars': scholars})
+    values_scholars = scholars.values('scholar_name','photo_url','parent_Name','date_Of_Birth','teacher_Name','grade_Level','room_Number','pickup_Method')
+    list_scholars = list(values_scholars)
+
+    print(type(scholars))
+    print(type(values_scholars))
+    print(type(list_scholars))
+
+    return JsonResponse(list_scholars, safe =False)
+    # return render(request, 'piggy/scholar_list.html', {'scholars': scholars})
 
 def parent_list(request):
     parents = Parent.objects.all()
-    return render(request, 'piggy/parent_list.html', {'parents': parents})
+    values_parents = parents.values('first_name','last_name','relation_To_Scholar','scholar','phone_number')
+    list_parents = list(values_parents)
+
+    print(type(parents))
+    print(type(values_parents))
+    print(type(list_parents))
+
+    return JsonResponse(list_parents, safe=False)
+    # return render(request, 'piggy/parent_list.html', {'parents': parents})
 
 def room_detail(request, pk):
     room = Room.objects.get(id=pk)
