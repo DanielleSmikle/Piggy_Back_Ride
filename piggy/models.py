@@ -32,10 +32,8 @@ class Scholar(models.Model):
         return self.scholar_name
 
 class Parent(models.Model):
-    scholar = models.ForeignKey(
+    scholar = models.ManyToManyField(
                         Scholar,
-                        on_delete=models.CASCADE,
-                        related_name='parent',
                         )
     first_name = models.CharField(max_length=50, default='Jon')
     last_name = models.CharField(max_length=50, default='Doe')

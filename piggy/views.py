@@ -9,7 +9,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 from rest_framework import generics
-from .serializers import RoomSerializer, ScholarSerializer
+from .serializers import RoomSerializer, ScholarSerializer, ParentSerializer
 
 
 # Create your views here.
@@ -29,6 +29,14 @@ class ScholarList(generics.ListCreateAPIView):
 class ScholarDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Scholar.objects.all()
     serializer_class= ScholarSerializer
+
+class ParentList(generics.ListCreateAPIView):
+    queryset = Parent.objects.all()
+    serializer_class = ParentSerializer
+
+class ParentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Parent.objects.all()
+    serializer_class= ParentSerializer
 
 
 
