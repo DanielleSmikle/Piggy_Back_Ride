@@ -26,6 +26,7 @@ class Scholar(models.Model):
     room_Number = models.CharField(max_length = 4, default='110')
     pickup_Method = models.CharField(max_length = 20, default= 'Bus #280')
     photo_url= models.TextField(default='https://tse2.mm.bing.net/th?id=OIP.C4vvjQgPzPD3IrOHEZsQ7AAAAA&pid=Api&P=0&w=169&h=168')
+    
 
 
     def __str__(self):
