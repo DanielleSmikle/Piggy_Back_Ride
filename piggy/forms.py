@@ -9,7 +9,7 @@ class RoomForm(forms.ModelForm):
         fields = (
                 'room_number',
                 'teacher_Name',
-                'scholar_Name', 
+                
                 'photo_url'
                 )
 

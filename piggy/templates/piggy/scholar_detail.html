@@ -8,13 +8,13 @@
 <h2>{{scholar.teacher_Name}}</h2>
 <h2>{{scholar.grade_Level}}</h2>
 <h2>{{scholar.room_Number}}</h2>
-<h2>{{scholar.pickup_Method}</h2>
+<h2>{{scholar.pickup_Method}}</h2>
 
 <img src="{{scholar.photo_url}}" class="child-photo"/>
 
 <h4> Parents <a href=''>(+)</a></h4>
 <ul>
-    {% for Parents in scholar.parent.all %}
+    {% for Parents in scholar.parents.all %}
         <li>
             <a href="">{{parent.first_name}}-{{parent.last_name}}-{{parent.relation_To_Scholar}}-{{parent.scholar}}-{{parent.phone_number}}</a>
         </li>

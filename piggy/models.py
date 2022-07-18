@@ -47,7 +47,6 @@ class Parent(models.Model):
     
 
 
-    
 
 
     
