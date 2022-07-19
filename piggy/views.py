@@ -4,6 +4,16 @@ from django.shortcuts import render, redirect
 from .models import Room, Scholar, Parent
 from .forms import ParentForm, Room, Scholar, Parent, ScholarForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views import View
+# at top of file with other imports
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+# Auth
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
+
+
 
 # Create your views here.
 
@@ -12,6 +22,7 @@ class RoomCreate(CreateView):
     fields = ['room_number','teacher_Name','scholar_Name', 'photo_url']
     template_name = 'piggy/room_form.html'
     success_url= '/rooms/'
+
 
 class RoomUpdate(UpdateView):
     model = Room
@@ -24,10 +35,12 @@ class RoomDelete(DeleteView):
     template_name = 'piggy/room_delete_form.html'
     success_url= '/rooms/'
 
+
 class ScholarCreate(CreateView):
     model = Scholar
     fields = ['scholar_name', 'photo_url', 'parent_Name', 'date_Of_Birth', 'teacher_Name', 'grade_Level','room_Number','pickup_Method']
     template_name = 'piggy/scholar_form.html'
+    success_url = '/scholars/'
 
 class ScholarUpdate(UpdateView):
     model = Scholar
@@ -57,10 +70,12 @@ class ParentDelete(DeleteView):
     template_name = 'piggy/parent_delete_form.html'
     success_url= '/parents/'
 
+@login_required
 def room_list(request):
     rooms = Room.objects.all()
     return render(request, 'piggy/room_list.html', {'rooms':rooms})
 
+@login_required
 def scholar_list(request):
     scholars = Scholar.objects.all()
     return render(request, 'piggy/scholar_list.html', {'scholars': scholars})
@@ -68,15 +83,17 @@ def scholar_list(request):
 def parent_list(request):
     parents = Parent.objects.all()
     return render(request, 'piggy/parent_list.html', {'parents': parents})
-
+    
+@login_required
 def room_detail(request, pk):
     room = Room.objects.get(id=pk)
     return render( request, 'piggy/room_detail.html', {'room':room})
 
+@login_required
 def scholar_detail(request, pk):
     scholar = Scholar.objects.get(id=pk)
     return render( request, 'piggy/scholar_detail.html', {'scholar':scholar})
-
+@login_required
 def parent_detail(request, pk):
     parent = Parent.objects.get(id=pk)
     return render( request, 'piggy/parent_detail.html', {'parent':parent})
@@ -116,3 +133,22 @@ def parent_detail(request, pk):
 #     else:
 #         form = ParentForm()
 #     return render(request, 'piggy/parent_form.html', {'form':form})
+
+
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form submit, validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("artist_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
+

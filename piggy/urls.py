@@ -24,4 +24,6 @@ urlpatterns = [
     path('parents/<int:pk>/update', views.ParentUpdate.as_view(), name='parent_update'),
     path('parents/<int:pk>/delete', views.ParentDelete.as_view(), name='parent_delete'),
     
+    path('accounts/signup/', views.Signup.as_view(), name="signup")
+
 ]

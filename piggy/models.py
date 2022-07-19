@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Room(models.Model):
     room_number = models.CharField(max_length=4)
     teacher_Name = models.CharField(max_length=100)
-    scholar_Name = models.CharField(max_length =100)
+    scholar_Name = models.CharField(max_length =100, default= 'Billy Bob')
+    grade_level = models.CharField(max_length = 4, default='4')
     photo_url= models.TextField(default='https://tse3.mm.bing.net/th?id=OIP.sttsR_82WRk0u7zA7lpGPAHaFN&pid=Api&P=0&w=255&h=179')
 
     def __str__(self):
@@ -16,10 +18,11 @@ class Scholar(models.Model):
                         Room,
                         on_delete=models.CASCADE,
                         related_name='scholar',
+                        default=1
                         )
     scholar_name = models.CharField(max_length=50, default='Jon Doe')
     parent_Name = models.CharField(max_length=100, default= 'Jane Doe')
-    parent_Number = models.CharField(max_length= 10, default='(516)123-4567')
+    parent_Number = models.CharField(max_length= 25, default='(516)123-4567')
     date_Of_Birth = models.DateField(max_length = 10, default= '2012-11-12')
     teacher_Name = models.CharField(max_length = 20, default='Ms.Smikle')
     grade_Level = models.CharField(max_length = 4, default='4')
@@ -36,6 +39,7 @@ class Parent(models.Model):
                         Scholar,
                         on_delete=models.CASCADE,
                         related_name='parent',
+                        default=1
                         )
     first_name = models.CharField(max_length=50, default='Jon')
     last_name = models.CharField(max_length=50, default='Doe')
