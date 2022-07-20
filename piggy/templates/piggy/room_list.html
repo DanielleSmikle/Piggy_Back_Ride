@@ -1,14 +1,18 @@
 {% extends 'piggy/base.html' %} 
 {% block title %}- Room {% endblock%}
 {% block content %} 
-    <h2>Room Listings</h2>
-    <ul>
-        {% for room in rooms %}
-           <a href="{%url 'room_detail' pk=room.pk %}"><h2>{{room.room_number}}</h2></a>
+    <h2 class="title">Room Listings</h2>
+    <ul class ="test-flex">
+        
+        {% for room in rooms %} 
+            <li>
+                <a href="{%url 'room_detail' pk=room.pk %}"><h2>{{room.room_number}}</h2></a>
             <p>{{room.teacher_Name}}</p>
             <!-- <p>{{room.scholar_Name}}</p> -->
             <img src="{{room.photo_url}}" alt="room.teacher_name"/>
-            <hr />
+            </li>
+          
+           
         {% endfor %}
     </ul>
 {% endblock %}

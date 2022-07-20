@@ -8,17 +8,14 @@ class Room(models.Model):
     teacher_Name = models.CharField(max_length=100)
     scholar_Name = models.CharField(max_length =100, default= 'Billy Bob')
     grade_level = models.CharField(max_length = 4, default='4')
-    photo_url= models.TextField(default='https://tse3.mm.bing.net/th?id=OIP.sttsR_82WRk0u7zA7lpGPAHaFN&pid=Api&P=0&w=255&h=179')
+    photo_url= models.TextField(default='https://tse1.mm.bing.net/th?id=OIP.o-paU20ODu6RRuU9ZIMCcQHaHa&pid=Api&P=0')
 
     def __str__(self):
         return self.room_number
 
 class Scholar(models.Model):
-    Room = models.ForeignKey(
+    room = models.ManyToManyField(
                         Room,
-                        on_delete=models.CASCADE,
-                        related_name='scholar',
-                        default=1
                         )
     scholar_name = models.CharField(max_length=50, default='Jon Doe')
     parent_Name = models.CharField(max_length=100, default= 'Jane Doe')
@@ -28,8 +25,13 @@ class Scholar(models.Model):
     grade_Level = models.CharField(max_length = 4, default='4')
     room_Number = models.CharField(max_length = 4, default='110')
     pickup_Method = models.CharField(max_length = 20, default= 'Bus #280')
-    photo_url= models.TextField(default='https://tse2.mm.bing.net/th?id=OIP.C4vvjQgPzPD3IrOHEZsQ7AAAAA&pid=Api&P=0&w=169&h=168')
-
+    photo_url= models.TextField(default='https://tse1.mm.bing.net/th?id=OIP.o-paU20ODu6RRuU9ZIMCcQHaHa&pid=Api&P=0')
+    Monday= models.TextField(default="How will your scholar get home today?")
+    Tuesday= models.TextField(default="How will your scholar get home today?")
+    Wednesday= models.TextField(default="How will your scholar get home today?")
+    Thursday= models.TextField(default="How will your scholar get home today?")
+    Friday= models.TextField(default="How will your scholar get home today?")
+    
 
     def __str__(self):
         return self.scholar_name
@@ -38,8 +40,8 @@ class Parent(models.Model):
     scholar = models.ForeignKey(
                         Scholar,
                         on_delete=models.CASCADE,
-                        related_name='parent',
-                        default=1
+                        related_name='parent_scholar',
+                        default=3
                         )
     first_name = models.CharField(max_length=50, default='Jon')
     last_name = models.CharField(max_length=50, default='Doe')
@@ -48,16 +50,3 @@ class Parent(models.Model):
 
     def __str__(self):
         return self.first_name
-    
-
-
-
-
-    
-
-
-
-
-
-
- 

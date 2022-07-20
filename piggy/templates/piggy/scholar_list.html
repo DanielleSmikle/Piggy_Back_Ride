@@ -2,7 +2,7 @@
 {% block title %}- Scholars {% endblock%}
 {% block content %} 
     <h2>Scholars</h2>
-    <ul>
+    <ul class ="scholar-list">
         {% for scholar in scholars %}
            <a href="{%url 'scholar_detail' pk=scholar.pk %}"><h2>{{scholar.scholar_name}}</h2></a>
             <img src="{{scholar.photo_url}}" />
@@ -12,8 +12,8 @@
             <h2>{{scholar.grade_Level}}</h2>
             <h2>{{scholar.room_Number}}</h2>
             <h2>{{scholar.pickup_Method}}</h2>
+        
             
-            <hr />
         {% endfor %}
     </ul>
 {% endblock%}
