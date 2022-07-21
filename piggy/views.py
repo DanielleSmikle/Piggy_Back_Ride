@@ -55,7 +55,7 @@ class ScholarDelete(DeleteView):
 
 class ParentCreate(CreateView):
     model = Parent
-    fields = ['first_name','last_name', 'relation_To_Scholar', 'phone_number','scholar']
+    fields = ['first_name','last_name', 'relation_To_Scholar', 'phone_number']
     template_name = 'piggy/parent_form.html'
     success_url= '/parents/'
 
@@ -82,6 +82,7 @@ def scholar_list(request):
 
 def parent_list(request):
     parents = Parent.objects.all()
+    print(parents)
     return render(request, 'piggy/parent_list.html', {'parents': parents})
     
 @login_required
@@ -93,7 +94,7 @@ def room_detail(request, pk):
 def scholar_detail(request, pk):
     scholar = Scholar.objects.get(id=pk)
     return render( request, 'piggy/scholar_detail.html', {'scholar':scholar})
-    
+
 @login_required
 def parent_detail(request, pk):
     parent = Parent.objects.get(id=pk)

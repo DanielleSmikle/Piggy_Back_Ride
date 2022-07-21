@@ -3,15 +3,15 @@
 {% block content %} 
     <h2>Parent/ Guardians </h2>
     <ul>
-        {% for parent in parents %}
-           <a href="{% url 'parent_detail' pk=parent.pk%}" ><h2>{{parent.first_name}}</h2></a>
+        {{parents}}
+        <!-- {% for parent in parents %} -->
+           <!-- <a href="{% url 'parent_detail' pk=parent.pk%}" ><h2>{{parent.first_name}}</h2></a>
             <p>{{parent.last_name}}</p>
             <p>{{parent.relation_To_Scholar}}</p>
-            <!-- <p>{{parent.scholar}}<p> -->
             <p>{{parent.phone_number}}</p>
             
             
-            <hr />
-        {% endfor %}
+            <hr /> -->
+        <!-- {% endfor %} -->
     </ul>
 {% endblock %}

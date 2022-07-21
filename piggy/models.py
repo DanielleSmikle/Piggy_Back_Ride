@@ -24,13 +24,9 @@ class Scholar(models.Model):
     teacher_Name = models.CharField(max_length = 20, default='Ms.Smikle')
     grade_Level = models.CharField(max_length = 4, default='4')
     room_Number = models.CharField(max_length = 4, default='110')
-    pickup_Method = models.CharField(max_length = 20, default= 'Bus #280')
+    pickup_Method = models.CharField(max_length = 250, default= 'Let us know if there will be any changes this week!')
     photo_url= models.TextField(default='https://tse1.mm.bing.net/th?id=OIP.o-paU20ODu6RRuU9ZIMCcQHaHa&pid=Api&P=0')
-    Monday= models.TextField(default="How will your scholar get home today?")
-    Tuesday= models.TextField(default="How will your scholar get home today?")
-    Wednesday= models.TextField(default="How will your scholar get home today?")
-    Thursday= models.TextField(default="How will your scholar get home today?")
-    Friday= models.TextField(default="How will your scholar get home today?")
+    
     
 
     def __str__(self):
