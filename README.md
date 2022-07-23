@@ -4,8 +4,8 @@ This simple web application that can be used by both parents and teachers for ch
 ## WIREFRAME
 ---
 When the game opens, you will see this homepage:
-![Homepage of Gym App](https://i.imgur.com/GyckZqL.png)
-![Workout Customizing Screen](https://i.imgur.com/k6w8IKN.png)
+![Login of Piggy Back Ride](https://i.imgur.com/u02bO9H.png)
+![Homepage](https://i.imgur.com/G7S5Op0.png)
 
 ## TECHNOLOGIES USED
 Python, Django, SQL, Static Files 
