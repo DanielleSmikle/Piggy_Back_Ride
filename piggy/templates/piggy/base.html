@@ -18,7 +18,7 @@
     {% if user.is_authenticated %}
     <div class="navbar-menu navbar-end">
         <span class="navbar-item">Welcome: {{user.username}}</span>
-        <a class="navbar-item" href="/artists"></a>
+        <a class="navbar-item" href="/rooms"></a>
         <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
     </div>
 {% else %}
@@ -32,10 +32,10 @@
     <nav>
         <a href="/rooms">Rooms</a>
         <a href="/scholars">Scholars</a>
-        <a href="/parents">Parents</a>
+        <!-- <a href="/parents">Parents</a> -->
         <a href="/rooms/new"> New Room</a>
         <a href="/scholars/new">New Scholar</a>
-        <a href="/parents/new">New Parents</a>
+        <!-- <a href="/parents/new">New Parents</a> -->
     </nav>
     {% block content %} {% endblock %}
 </body>

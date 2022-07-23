@@ -1,6 +1,6 @@
 {% extends 'piggy/base.html' %} {% block content %}
 
-<h1 class="title">Log In</h1>
+<h2 class="title">Log In</h2>
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %} {{ form.as_p }}
     <input type="submit" class="btn" value="login" />

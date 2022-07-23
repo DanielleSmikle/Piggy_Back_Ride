@@ -7,7 +7,7 @@
         {% for room in rooms %} 
             <li>
                 <a href="{%url 'room_detail' pk=room.pk %}"><h2>{{room.room_number}}</h2></a>
-            <p>{{room.teacher_Name}}</p>
+            <h3>{{room.teacher_Name}}</h3>
             <!-- <p>{{room.scholar_Name}}</p> -->
             <img src="{{room.photo_url}}" alt="room.teacher_name"/>
             </li>

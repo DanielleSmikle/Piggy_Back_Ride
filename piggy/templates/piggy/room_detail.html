@@ -2,14 +2,16 @@
 {% block title %}{{room.room_number}} {% endblock %}
 {% block content %} 
 
-<label>{{room.room_number}}</label> <a href="{% url 'room_update' pk=room.pk %}">Edit room number</a>
-<a href="{% url 'room_delete' pk=room.pk %}">Delete Room </a>
+<label>{{room.room_number}}</label> 
 <label>{{room.teacher_Name}}</label>
 <label>{{room.scholar_Name}}</label>
 
 <img src ="{{room.photo_url}}" alt="room.teacher_name" class="room-photo" />
 
 <label>Scholars <a href='/scholars/new'>(+)</a></label>
+
+<a href="{% url 'room_update' pk=room.pk %}">Edit Room Contents</a>
+<a href="{% url 'room_delete' pk=room.pk %}">Delete Room </a>
 <ul>
     {% for Scholars in room.scholars.all %}
         <li>

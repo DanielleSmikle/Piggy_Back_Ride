@@ -1,17 +1,18 @@
 {% extends 'piggy/base.html' %}
 {% block title %}{{scholar.scholar_name}} {% endblock %}
 {% block content %} 
-<h2>{{scholar.scholar_name}}</h2> <a href="{% url 'scholar_update' pk=scholar.pk %}">Edit Scholar</a>
+<h2>{{scholar.scholar_name}}</h2> 
+<label>{{scholar.parent_Name}}</label>
+<label>{{scholar.date_Of_Birth}}</label>
+<label>{{scholar.teacher_Name}}</label>
+<label>{{scholar.grade_Level}}</label>
+<label>{{scholar.room_Number}}</label>
+<label>{{scholar.pickup_Method}}</label>
+
+<a href="{% url 'scholar_update' pk=scholar.pk %}">Edit Scholar</a>
 <a href="{% url 'scholar_delete' pk=scholar.pk %}">Delete Scholar</a>
-<h4>{{scholar.parent_Name}}</h4>
-<h4>{{scholar.date_Of_Birth}}</h4>
-<h2>{{scholar.teacher_Name}}</h2>
-<h2>{{scholar.grade_Level}}</h2>
-<h2>{{scholar.room_Number}}</h2>
-<h2>{{scholar.pickup_Method}}</h2>
 
-
-<img src="{{scholar.photo_url}}" class="child-photo"/>
+<img src="{{scholar.photo_url}}" class="img"/>
 
 <h4> Parents <a href=''>(+)</a></h4>
 <ul>

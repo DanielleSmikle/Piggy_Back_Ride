@@ -5,60 +5,96 @@ body {
     margin: auto;
     padding: 2em 1em;
     flex: 2cm;
-    background-color: whitesmoke;
+    background-color: #b8c5ff;
+  }
+
+  @media screen and (max-width:900px) {
+
+    body {
+      background-color:rgba(249, 188, 127, 0.8);
+    }
+    h1{
+      letter-spacing: 1px;
+      
+    }
+
+  }
+
+  @media screen and (max-width:800px) {
+    body{
+      background-color: #9de4ff;
+    }
+    
   }
 
  
   nav a {
-    border: 1px solid pink;
+    border: 1px dashed whitesmoke;
     margin: 0.5em;
     padding: 0.5em;
     background-color: #a669d0;
+    font-family: 'Helvetica Neue', sans-serif;
     
   }
   
   nav a:hover {
-    background-color: orange;
-    color: blue;
+    background-color: white;
+    color:  #f415ed;
+    border: #a669d0;
   }
   
   a,
   a:visited {
-    text-decoration: none;
-    color: black;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #86fafb;
+    padding: 1px;
+    border: #f415ed;
+    border-radius: 50px;
+    border-width: 5px;
+    text-align: center;
   }
   
   a:hover {
-    background-color: rgba(249, 188, 127, 0.8);
+    background-color: whitesmoke;
   }
   
   ul {
     list-style-type: none;
+    size-adjust: 10px;
   }
   
   li {
-    margin: 10px;
+    margin: 15px;
   }
   
   h1 {
-    font: inherit;
-    color: green;
-    letter-spacing: -0.05em;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: fuchsia ;
+    letter-spacing: 5px;
     text-decoration: none;
-    border-bottom: 1px solid green;
+    border-bottom: 5px solid whitesmoke;
+    text-align: left;
   }
   
   h2 > a {
-    font-size: .75em;
+    font-size: 10px;
+    
    
+  }
+  h3 {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: navy;
+
+
   }
   
   input {
     display: block;
-    margin: 5px 0 20px 0;
-    padding: 9px;
-    border: solid 1px blue;
+    margin: 0px 0 0px 0;
+    padding: 10px;
+    border: solid 3px #fdbb2d;
     width: 300px;
+    height: .15px;
     background: whitesmoke;
   }
   
@@ -66,7 +102,8 @@ body {
   a.delete {
     width: auto;
     padding: 9px 15px;
-    background-color: gray;
+    background-color: grey;
+    height: 30px;
     border: 0;
     font-size: 14px;
     color: #ffffff;
@@ -77,7 +114,7 @@ body {
   }
   
   .artist-photo {
-    width: 400px;
+    width: 100px;
   }
   
   span.nationality {
@@ -85,7 +122,7 @@ body {
   }
   
   .user-info {
-    float: left;
+    float: center;
   }
   
   a.fav {
@@ -105,7 +142,10 @@ body {
 
   .navbar-item{
     text-align: right;
-    font-size: 50px;
+    font-size: 20px;
+    color: whitesmoke;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 
   }
 
@@ -117,15 +157,29 @@ body {
   }
 
   label{
+    font-family: 'Helvetica Neue', sans-serif;
     display: block;
     flex-direction: column;
-    color: #b488b6
+    color: navy;
+    padding: 20px
+  
+
   }
 
   .scholar-list{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
+  }
+
+  .room-form{
+    display: flex;
+    flex-direction: row;
+    text-align: wrap;
+  }
+
+  .img{
+    max-width: 10px;
   }
 
   

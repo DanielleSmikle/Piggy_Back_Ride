@@ -1,6 +1,6 @@
 <!-- piggy/templates/piggy/room_form.html -->
 {% extends 'piggy/base.html' %} {% block content %}
-<h1>Update {{scholar.scholar_name}}</h1>
+<h2>Update {{scholar.scholar_name}}</h2>
 <form method="POST" class="scholar-update-form">
     {% csrf_token %} 
     {{ form.as_p }}

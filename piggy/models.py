@@ -8,7 +8,7 @@ class Room(models.Model):
     teacher_Name = models.CharField(max_length=100)
     scholar_Name = models.CharField(max_length =100, default= 'Billy Bob')
     grade_level = models.CharField(max_length = 4, default='4')
-    photo_url= models.TextField(default='https://tse1.mm.bing.net/th?id=OIP.o-paU20ODu6RRuU9ZIMCcQHaHa&pid=Api&P=0')
+    photo_url= models.TextField(default='https://tse3.mm.bing.net/th?id=OIP.sttsR_82WRk0u7zA7lpGPAHaFN&pid=Api&P=0&w=255&h=179')
 
     def __str__(self):
         return self.room_number
@@ -25,7 +25,7 @@ class Scholar(models.Model):
     grade_Level = models.CharField(max_length = 4, default='4')
     room_Number = models.CharField(max_length = 4, default='110')
     pickup_Method = models.CharField(max_length = 250, default= 'Let us know if there will be any changes this week!')
-    photo_url= models.TextField(default='https://tse1.mm.bing.net/th?id=OIP.o-paU20ODu6RRuU9ZIMCcQHaHa&pid=Api&P=0')
+    photo_url= models.TextField(default='https://tse4.mm.bing.net/th?id=OIP.cWbcRfqUGcdv-ISD0FGlMwHaHq&pid=Api&P=0')
     
     
 
